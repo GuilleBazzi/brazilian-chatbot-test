@@ -12,7 +12,7 @@ More info about Api.ai webhooks could be found here:
 It's a weather information fulfillment service that uses [Yahoo! Weather API](https://developer.yahoo.com/weather/).
 The services takes the `geo-city` parameter from the action, performs geolocation for the city and requests weather information from Yahoo! Weather public API. 
 
-<a href="https://heroku.com/deploy?template=https://github.com/heroku/node-js-sample">
+<a href="https://heroku.com/deploy?template=https://github.com/GuilleBazzi/brazilian-chatbot-test">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
 
