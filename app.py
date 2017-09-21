@@ -57,7 +57,7 @@ def makeWebhookResult(req):
     zone = parameters.get("pf-product")
 
     cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
-    products = {'Benefix':2022, 'Carduran':309, 'Viagra':141, 'Vibramicina ':94}
+    products = {'Benefix':2022, 'Carduran':309.29, 'Viagra':141, 'Vibramicina ':94}
     speech = "The cost of " + zone + " is " + str(products[zone]) + " dolars."
 
     print("Response:")
