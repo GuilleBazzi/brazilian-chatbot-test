@@ -62,7 +62,8 @@ def buscarEmpresasVendenProducto(nombreProducto, primerRow=5, colProducto=1):
         contador += 1
     if not encontrado:
         respuesta += u"O produto " + nombreProducto.upper()  + u" não aparece em nossos registros"
-    return respuesta
+    #return respuesta
+    return "Texto de prueba"
 
 # Flask app should start in global layout
 app = Flask(__name__)
