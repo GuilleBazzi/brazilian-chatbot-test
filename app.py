@@ -27,11 +27,42 @@ from urllib.error import HTTPError
 
 import json
 import os
-import chatbot
 
+from openpyxl import load_workbook
 from flask import Flask
 from flask import request
 from flask import make_response
+
+wb = load_workbook('Delivery.xlsx')
+ws = wb['Delivery']
+
+colProducto = 1
+colEmpresa = 2
+colTelefono = 5
+colLocalizacion = 6
+primerRow = 5
+
+
+def buscarEmpresasVendenProducto(nombreProducto, primerRow=5, colProducto=1):
+    contador = primerRow
+    encontrado = False
+    respuesta = ""
+    while (ws.cell(row=contador, column=colProducto).value != None):
+        if ws.cell(row=contador, column=colProducto).value == nombreProducto.upper():
+            encontrado = True
+            emp = ws.cell(row=contador, column=colEmpresa).value
+            tel = ws.cell(row=contador, column=colTelefono).value
+            loc = ws.cell(row=contador, column=colLocalizacion).value
+            respuesta += emp + "\n\r"
+            if tel != None:
+                respuesta += u"Telefone/s: " + unicode(tel) + "\n\r"
+            if loc != None:
+                respuesta += u"Localização: " + unicode(loc) + "\n\r"
+            respuesta += "\n\r"
+        contador += 1
+    if not encontrado:
+        respuesta += u"O produto " + nombreProducto.upper()  + u" não aparece em nossos registros"
+    return respuesta
 
 # Flask app should start in global layout
 app = Flask(__name__)
@@ -79,7 +110,7 @@ def makeWebhookResult(req):
         parameters = result.get("parameters")
         producto = parameters.get("prod-emp")
 
-        speech = unicode(chatbot.buscarEmpresasVendenProducto(producto))
+        speech = unicode(buscarEmpresasVendenProducto(producto))
         
         print("Response:")
         print(speech)
