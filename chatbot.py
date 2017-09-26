@@ -32,7 +32,8 @@ def buscarEmpresasVendenProducto(nombreProducto, primerRow=5, colProducto=1):
         contador += 1
     if not encontrado:
         respuesta += u"O produto " + nombreProducto.upper()  + u" não aparece em nossos registros"
-    return respuesta
+    #return respuesta
+    return "Texto de prueba"
 
 #~ producto = raw_input(u"Digite o nome do produto: ")
 #~ print buscarEmpresasVendenProducto(producto)
