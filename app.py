@@ -74,7 +74,7 @@ def makeWebhookResult(req):
             # "contextOut": [],
             "source": "apiai-brazilian-chatbot"
         }
-    else if (req.get("result").get("action") == "producto.ciudad"):
+    elif (req.get("result").get("action") == "producto.ciudad"):
         result = req.get("result")
         parameters = result.get("parameters")
         producto = parameters.get("prod-emp")
