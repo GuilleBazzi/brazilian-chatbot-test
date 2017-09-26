@@ -79,8 +79,7 @@ def makeWebhookResult(req):
         parameters = result.get("parameters")
         producto = parameters.get("prod-emp")
 
-        speech = "TEXTO DE PRUEBA"
-        #speech = chatbot.buscarEmpresasVendenProducto(producto)
+        speech = unicode(chatbot.buscarEmpresasVendenProducto(producto))
         
         print("Response:")
         print(speech)
