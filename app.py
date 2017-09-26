@@ -79,8 +79,9 @@ def makeWebhookResult(req):
         parameters = result.get("parameters")
         producto = parameters.get("prod-emp")
 
-        speech = chatbot.buscarEmpresasVendenProducto(producto)
-
+        speech = "TEXTO DE PRUEBA"
+        #speech = chatbot.buscarEmpresasVendenProducto(producto)
+        
         print("Response:")
         print(speech)
 
